@@ -15,7 +15,7 @@ I want to import 'FAS_litters.csv'
 
 ```{r}
 litters_df = read_csv("data/FAS_litters.csv")
-View(litters_df)
+
 ```
 
 I imported the dataset. Now I want better names
@@ -74,18 +74,23 @@ fellow_df = read_excel("data/LotR_Words.xlsx", range = "B3:D6")
 ```
 
 ## Read SAS file
-Try to read sas file
+
+Try to read sas file but failed
+
 ```{R}
-pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+#pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 ```
 
+## why not read.csv
+
+'read.csv' does not give 'tibble' and that is bad
+
+## how do i export data
+
+there is a good way!
+
 ```{R}
-
-```
-
-
-```{R}
-
+write_csv(fellow_df, "data/fellowship_words.csv")
 ```
 
 ```{R}

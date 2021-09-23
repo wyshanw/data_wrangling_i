@@ -20,10 +20,6 @@ litters_df = read_csv("data/FAS_litters.csv")
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
-``` r
-View(litters_df)
-```
-
 I imported the dataset. Now I want better names
 
 ``` r
@@ -126,6 +122,40 @@ tail(litters_data)
     ## # … with 3 more variables: Pups born alive <int>, Pups dead @ birth <int>,
     ## #   Pups survive <int>
 
+## Reading fron excel
+
+REading mlb data
+
+``` r
+mlb11_df = read_excel("data/mlb11.xlsx")
+```
+
+LotR words is next
+
+``` r
+fellow_df = read_excel("data/LotR_Words.xlsx", range = "B3:D6")
+```
+
+## Read SAS file
+
+Try to read sas file but failed
+
+``` r
+#pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+```
+
+## why not read.csv
+
+‘read.csv’ does not give ‘tibble’ and that is bad
+
+## how do i export data
+
+there is a good way!
+
+``` r
+write_csv(fellow_df, "data/fellowship_words.csv")
+```
+
 I’m an R Markdown document!
 
 # Section 1
@@ -141,4 +171,4 @@ length(samp)
 
 # Section 2
 
-I can take the mean of the sample, too! The mean is 0.1038724.
+I can take the mean of the sample, too! The mean is -0.0268652.
