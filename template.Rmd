@@ -57,7 +57,7 @@ litters_data = read_csv(file = "./data/FAS_litters.csv",
   )
 )
 tail(litters_data)
-```
+``` 
 
 ## Reading fron excel
 
@@ -98,19 +98,6 @@ write_csv(fellow_df, "data/fellowship_words.csv")
 ```
 
 
-```{R}
-
-```
-
-
-```{R}
-
-```
-
-
-```{R}
-
-```
 I'm an R Markdown document! 
 
 # Section 1
