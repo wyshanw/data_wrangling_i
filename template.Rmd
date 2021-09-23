@@ -5,7 +5,8 @@ output: github_document
 
 ```{r, echo = FALSE, message=FALSE}
 library(tidyverse)
-library(janitor)
+library(readxl)
+library(haven)
 ```
 
 ## Import data
@@ -58,6 +59,35 @@ litters_data = read_csv(file = "./data/FAS_litters.csv",
 tail(litters_data)
 ```
 
+## Reading fron excel
+
+REading mlb data
+
+```{R}
+mlb11_df = read_excel("data/mlb11.xlsx")
+```
+
+LotR words is next
+
+```{R}
+fellow_df = read_excel("data/LotR_Words.xlsx", range = "B3:D6")
+```
+
+## Read SAS file
+Try to read sas file
+```{R}
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+```
+
+```{R}
+
+```
+
+
+```{R}
+
+```
+
 ```{R}
 
 ```
@@ -68,7 +98,14 @@ tail(litters_data)
 ```
 
 
+```{R}
 
+```
+
+
+```{R}
+
+```
 I'm an R Markdown document! 
 
 # Section 1
