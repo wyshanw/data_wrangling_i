@@ -20,3 +20,27 @@ pups_df = read_csv("data/FAS_pups.csv")
 pups_df = janitor::clean_names(pups_df)
 ```
 
+## `select`
+
+Let's select some columns.
+
+```{r}
+select(litters_df, group, litter_number)
+select(litters_df, group, gd0_weight:gd_of_birth) # select several coloumn
+select(litters_df,-litter_number) # not select one column
+select(litters_df, group, starts_with("pups")) # select column start with ""
+select(litters_df, GROUP = group, litter_number) # rename column
+rename(litters_df, GROUP = group)
+select(litters_df, litter_number, everything()) # change column order
+relocate(litters_df, litter_number) # same as above
+select(pups_df, litter_number, sex, pd_ears) # learning ass
+```
+
+
+
+
+
+
+
+
+
