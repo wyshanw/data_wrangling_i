@@ -73,3 +73,54 @@ arrange(litters_df, gd_of_birth, gd0_weight)
 ```
 }
 
+## Pipes
+
+```{r}
+litters_data_raw = read_csv("./data/FAS_litters.csv")
+litters_data_clean_names = janitor::clean_names(litters_data_raw)
+litters_select = select(litters_data_clean_names, group, pups_survive)
+litters_filtered = filter(litters_select, group == "Con7")
+#too long!
+#do this
+litters_df = 
+  read_csv("data/FAS_litters.csv") %>% #command+shift+m
+  janitor::clean_names() %>% 
+  select(group, pups_survive) %>% 
+  filter(group == "Con7")
+
+litters_df = 
+  read_csv("data/FAS_litters.csv") %>% #command+shift+m
+  janitor::clean_names() %>% 
+  select(-pups_survive) %>% 
+  mutate(
+    weight_change = gd18_weight - gd0_weight,
+    group = str_to_lower(group)
+  ) %>% 
+  drop_na(weight_change) %>% 
+  filter(group %in% c("con7","con8")) %>% #need to use lower case
+  select(litter_number, group, weight_change, everything())
+
+```
+
+
+```{r}
+litters_data_clean = 
+  drop_na(
+    mutate(
+      select(
+        janitor::clean_names(
+          read_csv("./data/FAS_litters.csv", col_types = "ccddiiii")
+          ), 
+      -pups_survive
+      ),
+    wt_gain = gd18_weight - gd0_weight,
+    group = str_to_lower(group)
+    ),
+  wt_gain
+  )
+
+litters_data_clean
+```
+}
+
+
