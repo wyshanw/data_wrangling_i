@@ -1,7 +1,7 @@
 Tidy Data
 ================
 
-## Pivot longer
+## pivot longer
 
 Load the PULSE data
 
@@ -27,3 +27,28 @@ pulse_tidy =
     visit = factor(visit)
   )
 ```
+
+## pivot\_wider
+
+make up a results data table
+
+``` r
+analysis_df =
+  tibble(
+    group = c("treatment","treatment", "control", "control"),
+    time = c("a", "b", "a", "b"),
+    group_mean = c(4,8,3,6)
+  )
+
+analysis_df %>%
+  pivot_wider(
+    names_from = "time",
+    values_from = "group_mean",
+  ) %>% 
+  knitr::kable() # make a nicer table
+```
+
+| group     |   a |   b |
+|:----------|----:|----:|
+| treatment |   4 |   8 |
+| control   |   3 |   6 |
